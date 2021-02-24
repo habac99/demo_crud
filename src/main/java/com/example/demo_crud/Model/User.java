@@ -3,11 +3,11 @@ package com.example.demo_crud.Model;
 public class User {
     private  String email;
     private  String password;
-    private int id;
+    private Integer id;
     private String name;
 
-    public User(String email, String password, String name) {
-
+    public User(Integer id,String email, String password, String name) {
+        this.id = id;
         this.email = email;
         this.password = password;
         this.name = name;
