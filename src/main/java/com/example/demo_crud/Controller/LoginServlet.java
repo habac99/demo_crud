@@ -22,7 +22,14 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         if(UserController.ValidateLogin(email,password)){
+
+            HttpSession session = request.getSession();
+            session.setAttribute("email",email);
             response.sendRedirect("Home.jsp");
+//            out.println("welcome "+ email);
+        }else{
+            out.println("Wrong email or password");
+            response.sendRedirect("login.jsp");
         }
     }
 }

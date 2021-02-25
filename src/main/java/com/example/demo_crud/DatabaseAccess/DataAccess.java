@@ -1,4 +1,4 @@
-package com.example.demo_crud.Model;
+package com.example.demo_crud.DatabaseAccess;
 
 import java.sql.*;
 

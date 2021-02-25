@@ -1,9 +1,8 @@
 package com.example.demo_crud.Controller;
-import com.example.demo_crud.Model.DataAccess;
+import com.example.demo_crud.DatabaseAccess.DataAccess;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.*;
-import java.util.concurrent.SynchronousQueue;
 
 
 public class UserController {
@@ -19,6 +18,7 @@ public class UserController {
             PreparedStatement ps = con.prepareStatement("select * from user where email=?");
             ps.setString(1,email.toLowerCase());
             ResultSet rs = ps.executeQuery();
+
             if(rs.next()){
 //                String email2 = rs.getString("email");
                 if (BCrypt.checkpw(password,rs.getString("password"))){
