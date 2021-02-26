@@ -10,7 +10,7 @@ import com.example.demo_crud.DatabaseAccess.ProductAccess;
 import com.example.demo_crud.Model.Product;
 import com.example.demo_crud.Model.Type;
 
-@WebServlet(name = "allProductServlet", value = "/allProduct")
+@WebServlet(name = "allProductServlet", value = "/Product")
 public class allProductServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

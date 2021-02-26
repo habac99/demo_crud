@@ -942,7 +942,7 @@ SELECT|sys.sys_config
     </column>
     <column id="294" parent="286" name="price_each">
       <Position>5</Position>
-      <DataType>float|0s</DataType>
+      <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="295" parent="286" name="total">

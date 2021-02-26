@@ -9,7 +9,7 @@
     <h1><%= "Hello World!" %>
     </h1>
     <br/>
-    <a href=login.jsp>Login</a>
+    <a href="Login">Login</a>
 </div>
 </body>
 </html>

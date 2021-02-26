@@ -81,29 +81,36 @@ public class ProductAccess {
             throwables.printStackTrace();
         }
     }
-    public Product getOneProduct(Integer id) throws SQLException, ClassNotFoundException {
-        Connection con =  getConnection();
-        PreparedStatement ps = con.prepareStatement("select * from products where idproducts = ?");
+    public Product getOneProduct(Integer id) {
         Product pr = new Product();
-        ps.setInt(1,id);
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()){
-            Integer prid = rs.getInt("idproducts");
-            String productName = rs.getString("productname");
-            Integer typeId = rs.getInt("idtype");
-            double price = rs.getDouble("price");
-            String image = rs.getString("image");
-            Integer inStock = rs.getInt("instock");
-            pr.setIdProducts(prid);
-            pr.setProductName(productName);
-            pr.setIdType(typeId);
-            pr.setPrice(price);
-            pr.setImage(image);
-            pr.setInStock(inStock);
+        try {
+           Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("select * from products where idproducts = ?");
+
+            ps.setInt(1,id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                Integer prid = rs.getInt("idproducts");
+                String productName = rs.getString("productname");
+                Integer typeId = rs.getInt("idtype");
+                double price = rs.getDouble("price");
+                String image = rs.getString("image");
+                Integer inStock = rs.getInt("instock");
+                pr.setIdProducts(prid);
+                pr.setProductName(productName);
+                pr.setIdType(typeId);
+                pr.setPrice(price);
+                pr.setImage(image);
+                pr.setInStock(inStock);
 
 
+            }
+
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
         }
         return pr;
+
     }
     public void deleteProduct(Integer id){
 
@@ -118,7 +125,27 @@ public class ProductAccess {
 
 
     }
+    public Boolean editProduct(Product product){
+        Boolean result = false;
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("" +
+                    "update products set productName=?, idtype=?, price=?, image=?, instock=? where idproducts = ?");
+            ps.setString(1,product.getProductName());
+            ps.setInt(2,product.getIdType());
+            ps.setDouble(3,product.getPrice());
+            ps.setString(4,product.getImage());
+            ps.setInt(5,product.getInStock());
+            ps.setInt(6,product.getIdProducts());
+            result =  ps.execute();
 
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+
+
+    }
 
 
 

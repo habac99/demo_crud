@@ -16,7 +16,7 @@ public class delProductServlet extends HttpServlet {
         ProductAccess pa =new ProductAccess();
 
             pa.deleteProduct(id);
-        response.sendRedirect("allProduct");
+        response.sendRedirect("Product");
 
     }
 

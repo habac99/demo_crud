@@ -18,6 +18,10 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+<%
+    if(session.getAttribute("email") == null)
+        response.sendRedirect("login.jsp");
+%>
 <div class="justify-content-center">
     <div align="center">
         <p> This is product page</p>
@@ -25,14 +29,7 @@
     <button type="button" id="abcd" class="btn btn-primary" data-toggle="modal" data-target="#add_product_form" data-backdrop="static">
        Add new
     </button>
-<%--<script>--%>
-<%--    $(document).ready(function(){--%>
-<%--        $("#abcd").click(function (){--%>
-<%--            console.log("ahdg")--%>
-<%--            $("#add_product_form").show();--%>
-<%--        })--%>
-<%--    });--%>
-<%--</script>--%>
+
     <div id="add_product_form" class="modal fade">
         <div class="modal-dialog modal-dialog-scrollable modal-xl "  role="document">
             <div class=" modal-content">
@@ -92,13 +89,13 @@
             <tr>
 <%--                <td class="autoIncre"><%=product.getIdProducts()%></td>--%>
                 <td class="autoIncre"></td>
-                <td><%=product.getProductName()%></td>
+                <td> <a href="Product/?id=<%=product.getIdProducts()%>"><%=product.getProductName()%></a>  </td>
                 <td><%=product.getIdType()%></td>
                 <td><%=product.getImage()%></td>
                 <td><%=product.getPrice()%></td>
                 <td><%=product.getInStock()%></td>
                 <td>
-                    <a href="allProduct/edit?id=<%= product.getIdProducts()%>">Edit</a>
+                    <a href="Product/edit?id=<%= product.getIdProducts()%>">Edit</a>
                     <a href="delProduct?id=<%= product.getIdProducts()%>">Delete</a>
                 </td>
             </tr>
@@ -109,6 +106,7 @@
 
         </tbody>
     </table>
+
 </div>
 </body>
 

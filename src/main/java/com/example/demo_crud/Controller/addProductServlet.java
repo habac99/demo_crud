@@ -26,7 +26,7 @@ public class addProductServlet extends HttpServlet {
         Product product = new Product(1,productName, typeId,price, "empty", inStock);
         ProductAccess pa = new ProductAccess();
         pa.insertProduct(product);
-        response.sendRedirect("allProduct");
+        response.sendRedirect("Product");
 
 
     }

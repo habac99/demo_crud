@@ -1,13 +1,18 @@
 package com.example.demo_crud.Controller;
 import com.example.demo_crud.DatabaseAccess.DataAccess;
+import com.example.demo_crud.Model.User;
 import org.mindrot.jbcrypt.BCrypt;
+import scala.Int;
 
+import javax.servlet.http.HttpSession;
 import java.sql.*;
 
 
 public class UserController {
 
+    public UserController(){
 
+    }
     public boolean SignUp(){
         return true;
     }
@@ -33,6 +38,30 @@ public class UserController {
             System.out.println(e);
         }
         return status;
+    }
+    public User getOneUser(String email){
+        User user = new User();
+
+        try {
+            Connection con = DataAccess.AccessDB();
+            PreparedStatement ps = con.prepareStatement("select  * from user where email=?");
+            ps.setString(1,email);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                Integer id = rs.getInt("iduser");
+                String name = rs.getString("name");
+                String uEmail= rs.getString("email");
+                user.setId(id);
+                user.setName(name);
+                user.setEmail(uEmail);
+
+            }
+
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return  user;
     }
 //    public static void main(String[] args){
 //        ValidateLogin("abc@gmail.com","123456");

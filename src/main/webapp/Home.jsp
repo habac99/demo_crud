@@ -20,7 +20,7 @@
         <p1>Welcome to my website, <%=session.getAttribute("email")%>   </p1>
         <br>
        <a href="LogoutServlet"><button  type="button" style="margin-top: 20px" >Logout</button></a>
-        <a href="allProduct"><button  type="button" style="margin-top: 20px;margin-left: 20px" >View All Product</button></a>
+        <a href="Product"><button  type="button" style="margin-top: 20px;margin-left: 20px" >View All Product</button></a>
     </div>
 
 
