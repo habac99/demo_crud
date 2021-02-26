@@ -27,14 +27,14 @@ CREATE TABLE `orders` (
   `iduser` int NOT NULL,
   `idproducts` int NOT NULL,
   `quantity` int NOT NULL,
-  `price_each` float NOT NULL,
+  `price_each` double NOT NULL,
   `total` float NOT NULL,
   PRIMARY KEY (`idorders`),
   KEY `order_user_idx` (`iduser`),
   KEY `order_product_idx` (`idproducts`),
   CONSTRAINT `order_product` FOREIGN KEY (`idproducts`) REFERENCES `products` (`idproducts`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `order_user` FOREIGN KEY (`iduser`) REFERENCES `user` (`iduser`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,6 +43,7 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` VALUES (1,3,17,5,123,615),(2,3,17,56,123,6888),(3,3,17,123,123,15129),(4,3,6,2,50.5,101),(5,3,17,3,123,369),(6,3,17,3,123,369),(7,3,6,2,50.5,101),(8,3,6,2,50.5,101),(9,3,6,3,50.5,151.5),(10,3,6,3,50.5,151.5),(11,3,2,4,50.5,202);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -63,7 +64,7 @@ CREATE TABLE `products` (
   PRIMARY KEY (`idproducts`),
   KEY `producttype_products_idx` (`idtype`),
   CONSTRAINT `producttype_products` FOREIGN KEY (`idtype`) REFERENCES `producttype` (`idType`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,7 +73,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'pr1',1,50.5,'empty',50),(2,'pr2',1,50.5,'empty',50),(3,'pr3',1,50.5,'empty',50),(4,'pr4',1,50.5,'empty',50),(5,'pr5',1,50.5,'empty',50),(6,'pr6',1,50.5,'empty',50),(7,'pr7',1,50.5,'empty',50);
+INSERT INTO `products` VALUES (2,'pr2',1,50.5,'empty',50),(3,'pr3',1,50.5,'empty',50),(4,'pr4',1,50.5,'empty',50),(5,'pr5',1,50.5,'empty',50),(6,'pr6',1,50.5,'empty',50),(7,'pr7',1,50.5,'empty',50),(17,'fgh',1,123,'empty',127);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,4 +139,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-02-25 17:55:59
+-- Dump completed on 2021-02-26 16:09:26

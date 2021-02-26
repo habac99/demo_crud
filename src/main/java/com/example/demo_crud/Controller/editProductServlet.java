@@ -36,13 +36,6 @@ public class editProductServlet extends HttpServlet {
         ProductAccess pa = new ProductAccess();
         Boolean result =  pa.editProduct(product);
         HttpSession session = request.getSession();
-        if(result){
-
-            session.setAttribute("success","Edit product successfully");
-//            response.sendRedirect("Home.jsp");
-        }else{
-            session.setAttribute("fail","Error Occurred");
-        }
         response.sendRedirect(request.getContextPath()+"/Product");
     }
 }

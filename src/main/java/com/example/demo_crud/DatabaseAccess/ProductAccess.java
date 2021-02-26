@@ -151,8 +151,6 @@ public class ProductAccess {
 
     public static void main(String[] args) {
         ProductAccess pa = new ProductAccess();
-//        Product product = new Product(1, "pr1", 1, 50.5, "empty", 50);
-//        pa.insertProduct(product);
         List<Product> all = pa.getAllProduct();
         List<Type> abc = pa.getAllType();
         System.out.println(abc.size());
