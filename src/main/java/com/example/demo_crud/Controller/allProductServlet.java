@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.example.demo_crud.DatabaseAccess.ProductAccess;
 import com.example.demo_crud.Model.Product;
+import com.example.demo_crud.Model.Type;
 
 @WebServlet(name = "allProductServlet", value = "/allProduct")
 public class allProductServlet extends HttpServlet {
@@ -16,6 +17,8 @@ public class allProductServlet extends HttpServlet {
         response.setContentType("text/html");
         ProductAccess pa = new ProductAccess();
         List<Product> allProducts = pa.getAllProduct();
+        List<Type> allType = pa.getAllType();
+        request.setAttribute("allType",allType);
         request.setAttribute("allProducts",allProducts);
         request.getRequestDispatcher("AllProduct.jsp").forward(request,response);
     }

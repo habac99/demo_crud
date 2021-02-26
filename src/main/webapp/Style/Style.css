@@ -1,0 +1,12 @@
+table {
+    /*margin-top: 25px;*/
+    /* background: #fff; */
+    border-collapse: collapse;
+    width: 100%;
+    counter-reset: tableCount;
+    /* border: 1px solid red; */
+}
+.autoIncre:before {
+    content: counter(tableCount);
+    counter-increment: tableCount;
+}

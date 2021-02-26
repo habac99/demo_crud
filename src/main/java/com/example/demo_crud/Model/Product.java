@@ -11,7 +11,7 @@ public class Product {
     private Integer inStock;
 
     public Product(){}
-    public Product(Integer idProducts, String productName, Integer idType, double price, String image, Integer inStock) {
+    public Product(Integer idProducts, String productName, Integer idType, Double price, String image, Integer inStock) {
         this.idProducts = idProducts;
         this.productName = productName;
         this.idType = idType;
@@ -58,7 +58,7 @@ public class Product {
         this.inStock = inStock;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

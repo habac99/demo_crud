@@ -16,6 +16,7 @@ public class ProductAccess {
         return con;
     }
 
+
     public ProductAccess() {
 
     }
@@ -25,6 +26,12 @@ public class ProductAccess {
             Connection con = getConnection();
             Statement statement = con.createStatement();
             ResultSet rs = statement.executeQuery("select idType, name from producttype");
+            while (rs.next()){
+                Integer id = rs.getInt("idType");
+                String typeName = rs.getString("name");
+                Type type = new Type(id,typeName);
+                allType.add(type);
+            }
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }
@@ -74,14 +81,54 @@ public class ProductAccess {
             throwables.printStackTrace();
         }
     }
+    public Product getOneProduct(Integer id) throws SQLException, ClassNotFoundException {
+        Connection con =  getConnection();
+        PreparedStatement ps = con.prepareStatement("select * from products where idproducts = ?");
+        Product pr = new Product();
+        ps.setInt(1,id);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()){
+            Integer prid = rs.getInt("idproducts");
+            String productName = rs.getString("productname");
+            Integer typeId = rs.getInt("idtype");
+            double price = rs.getDouble("price");
+            String image = rs.getString("image");
+            Integer inStock = rs.getInt("instock");
+            pr.setIdProducts(prid);
+            pr.setProductName(productName);
+            pr.setIdType(typeId);
+            pr.setPrice(price);
+            pr.setImage(image);
+            pr.setInStock(inStock);
+
+
+        }
+        return pr;
+    }
+    public void deleteProduct(Integer id){
+
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("delete from products where idproducts=?");
+            ps.setInt(1,id);
+            ps.execute();
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+
+
+    }
+
+
 
 
     public static void main(String[] args) {
         ProductAccess pa = new ProductAccess();
-        Product product = new Product(1, "pr1", 1, 50.5, "empty", 50);
-        pa.insertProduct(product);
+//        Product product = new Product(1, "pr1", 1, 50.5, "empty", 50);
+//        pa.insertProduct(product);
         List<Product> all = pa.getAllProduct();
-        System.out.println(all.get(2).getProductName());
+        List<Type> abc = pa.getAllType();
+        System.out.println(abc.size());
 
     }
 }

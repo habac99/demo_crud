@@ -9,6 +9,10 @@ public class Type {
     public Type(){
 
     }
+    public Type(Integer idType, String name){
+        this.idType = idType;
+        this.name = name;
+    }
     public Type(Integer idType, String name, String description, String image){
         this.idType = idType;
         this.name = name;
