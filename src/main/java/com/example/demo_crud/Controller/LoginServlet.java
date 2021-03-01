@@ -25,7 +25,11 @@ public class LoginServlet extends HttpServlet {
 
             HttpSession session = request.getSession();
             session.setAttribute("email",email);
+            Cookie cookie = new Cookie("JSESSIONID", session.getId());
+            cookie.setMaxAge(Integer.MAX_VALUE);
+            response.addCookie(cookie);
             response.sendRedirect("Home.jsp");
+
 //            out.println("welcome "+ email);
         }else{
             out.println("Wrong email or password");

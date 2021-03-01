@@ -29,6 +29,10 @@
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="@popperjs/core" level="application" />
+    <orderEntry type="library" name="jquery-3.5.1" level="application" />
+    <orderEntry type="library" name="popper.js" level="application" />
+    <orderEntry type="library" name="jquery-3.5.1.slim" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:4.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-api:5.7.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apiguardian:apiguardian-api:1.1.0" level="project" />
@@ -41,9 +45,7 @@
     <orderEntry type="library" name="Maven: com.github.t3hnar:scala-bcrypt_2.13:4.3.0" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.13.3" level="project" />
     <orderEntry type="library" name="Maven: de.svenkubiak:jBCrypt:0.4.1" level="project" />
-    <orderEntry type="library" name="@popperjs/core" level="application" />
-    <orderEntry type="library" name="jquery-3.5.1" level="application" />
-    <orderEntry type="library" name="popper.js" level="application" />
-    <orderEntry type="library" name="jquery-3.5.1.slim" level="application" />
+    <orderEntry type="library" name="Maven: org.apache.taglibs:taglibs-standard-spec:1.2.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.taglibs:taglibs-standard-impl:1.2.5" level="project" />
   </component>
 </module>

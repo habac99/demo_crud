@@ -1,11 +1,8 @@
 package com.example.demo_crud.DatabaseAccess;
-import com.example.demo_crud.DatabaseAccess.DataAccess;
+
 import com.example.demo_crud.Model.Product;
 import com.example.demo_crud.Model.Type;
-import scala.concurrent.impl.FutureConvertersImpl;
 
-import javax.swing.plaf.nimbus.State;
-import java.security.PublicKey;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
